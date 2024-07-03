@@ -10,7 +10,14 @@ namespace TensorFlowLite
             public float score;
             public Vector3[] keypoints;
 
-
+            public Result Clone()
+            {
+                return new Result
+                {
+                    score = this.score,
+                    keypoints = (Vector3[])this.keypoints.Clone() // Deep copy of the keypoints array
+                };
+            }
             private static readonly int[] toDetectionIndices = new int[] { 0, 5, 9, 13, 17, 1, 2, };
             public PalmDetect.Result ToDetection()
             {

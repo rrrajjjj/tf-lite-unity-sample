@@ -22,7 +22,7 @@ namespace TensorFlowLite
             }
         }
 
-        public const int MAX_PALM_NUM = 4;
+        public const int MAX_PALM_NUM = 2;
 
         // classificators / scores
         private readonly float[] output0 = new float[2944];
@@ -83,7 +83,7 @@ namespace TensorFlowLite
             interpreter.GetOutputTensorData(1, output1);
         }
 
-        public List<Result> GetResults(float scoreThreshold = 0.7f, float iouThreshold = 0.3f)
+        public List<Result> GetResults(float scoreThreshold = 0.8f, float iouThreshold = 0.5f)
         {
             results.Clear();
 
